@@ -1,0 +1,81 @@
+<h2>회원 가입</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <br /><br />
+  <!-- 하... 진심 개어려워서 탈주하고 싶다... -->
+  <!-- 진짜 못해서 미안해요ㅠㅠ -->
+  <!-- 왜 다들 잘하는거지ㅠ 내 빼도 잘 굴러가는데ㅠ-->
+
+  <div class="field">
+    <%= f.label :이름 %> &nbsp
+    <%= f.text_field :username %>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <%= f.label :학교 %> &nbsp
+    <%= select_tag(:userschool, options_for_select([['연세대학교', 1], ['이화여자대학교', 2], ['홍익대학교', 3], ['서강대학교', 4]]))%>
+  </div>
+
+  <div class="field">
+    <%= f.label :성별 %>&nbsp&nbsp&nbsp
+      <label class="radio_button">
+        <%= f.radio_button :usersex, '남자', checked: false %> 남자
+      </label>
+      <label class="radio_button">
+        <%= f.radio_button :usersex, '여자', checked: false %> 여자 
+      </label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <%= f.label :나이 %>&nbsp
+    <%= f.text_field :userage %>
+  </div>
+
+  프로필 사진 <%= f.file_field :userimage_url %><br />  
+
+  <div class="field">
+    <%= f.label :'취미(관심사)' %>
+    <%= f.text_field :userhobby %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'성격' %>
+    <%= f.text_field :usercharacter %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :'키' %>
+    <%= f.text_field :userheight %> cm
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <%= f.label :'종교' %>
+    <%= f.text_field :userreligion %> <br />
+    <%= f.label :'스타일' %>
+    <%= f.text_field :userstyle %> <br />
+    <%= f.label :'이런걸 원한다' %>
+    <%= f.text_area :userwantyes %> <br />
+    <%= f.label :'이런걸 싫어한다' %>
+    <%= f.text_area :userwantno %> <br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit "연지공지 가입하기" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
