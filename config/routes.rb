@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :users, controllers: {
+  # devise_for :users, controllers: {
 
-      registrations: 'user/registrations'
-  }
+  #     registrations: 'user/registrations'
+  # }
 
  #devise_for :users, controllers: { registrations: 'users/registrations' }
 end

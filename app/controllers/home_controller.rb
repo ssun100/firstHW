@@ -10,4 +10,23 @@ class HomeController < ApplicationController
 #    end
   end
 
+  def create
+  	user=User.new
+  	user.school=params[:userschool]
+  	user.sex=params[:usersex]
+  	user.age=params[:userage]
+  	user.img=params[:userimage_url]
+  	user.hobby=params[:userhobby]
+  	user.character=params[:usercharacter]
+  	user.height=params[:userheight]
+  	user.ligion=params[:userreligion]
+  	user.style=params[:userstyle]
+  	user.wantyes=params[:userwantyes]
+  	user.wantno=params[:userwantno]
+    user.major=params[:usermajor]
+    user.appeal=params[:userappeal]
+    user.save
+
+    redirect_to '/'
+  end
 end
